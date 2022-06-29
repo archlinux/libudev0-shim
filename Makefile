@@ -1,6 +1,6 @@
 CFLAGS := -Wall -Wextra -g -fvisibility=hidden -shared -fPIC $(CFLAGS)
 LDFLAGS := -Wl,-soname,libudev.so.0 -Wl,-z,now $(LDFLAGS)
-LDLIBS := -ludev
+LDLIBS := -Wl,--no-as-needed -ludev -Wl,--as-needed
 
 default: all
 
