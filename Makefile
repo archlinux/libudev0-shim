@@ -1,6 +1,7 @@
 CFLAGS := -Wall -Wextra -g -fvisibility=hidden -shared -fPIC $(CFLAGS)
 LDFLAGS := -Wl,-soname,libudev.so.0 -Wl,-z,now $(LDFLAGS)
-LDLIBS := -Wl,--no-as-needed -ludev -Wl,--as-needed
+LDLIBS := -Wl,--no-as-needed -ludev -Wl,--as-needed $(LDLIBS)
+
 abi_version := 0.13.9999
 prefix := /usr
 libdir := $(prefix)/lib
@@ -19,3 +20,4 @@ install: libudev.so.$(abi_version)
 
 clean:
 	$(RM) libudev.so.$(abi_version)
+
